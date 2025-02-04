@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chúc Mừng Đám Cưới - [Tên Cô Dâu & Tên Chú Rể]</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- ScrollReveal cho hiệu ứng animation -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+  <!-- Header với ảnh nền Parallax -->
+  <header class="parallax" data-sr>
+    <div class="header-content">
+      <h1>[Tên Cô Dâu] & [Tên Chú Rể]</h1>
+      <p>Ngày cưới: [Ngày]</p>
+    </div>
+  </header>
+
+  <!-- Menu điều hướng -->
+  <nav class="main-nav" data-sr>
+    <ul>
+      <li><a href="#story">Câu chuyện</a></li>
+      <li><a href="#gallery">Ảnh cưới</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#timeline">Hành trình</a></li>
+      <li><a href="#wishes">Lời chúc</a></li>
+      <li><a href="#countdown">Đếm ngược</a></li>
+      <li><a href="#map">Địa điểm</a></li>
+    </ul>
+  </nav>
+
+  <!-- Section: Câu chuyện tình yêu -->
+  <section id="story" data-sr>
+    <h2>Câu Chuyện Tình Yêu</h2>
+    <p>[Mô tả chi tiết về hành trình tình yêu của cô dâu và chú rể, những kỷ niệm đẹp, thử thách và cảm xúc đặc biệt...]</p>
+  </section>
+
+  <!-- Section: Gallery ảnh cưới (Slideshow) -->
+  <section id="gallery" data-sr>
+    <h2>Ảnh Cưới</h2>
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img src="image1.jpg" alt="Ảnh cưới 1">
+      </div>
+      <div class="mySlides fade">
+        <img src="image2.jpg" alt="Ảnh cưới 2">
+      </div>
+      <div class="mySlides fade">
+        <img src="image3.jpg" alt="Ảnh cưới 3">
+      </div>
+      <!-- Bạn có thể thêm nhiều slide hơn nếu cần -->
+    </div>
+  </section>
+
+  <!-- Section: Video cưới -->
+  <section id="video" data-sr>
+    <h2>Video Cưới</h2>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/your_video_id" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Section: Timeline/Hành trình -->
+  <section id="timeline" data-sr>
+    <h2>Hành Trình Tình Yêu</h2>
+    <ul class="timeline">
+      <li>
+        <div class="timeline-content">
+          <h3>Bước Đầu Gặp Gỡ</h3>
+          <p>Mô tả ngày đầu tiên gặp gỡ, những ấn tượng ban đầu...</p>
+          <span class="date">[Ngày/tháng/năm]</span>
+        </div>
+      </li>
+      <li>
+        <div class="timeline-content">
+          <h3>Khoảnh Khắc Đặc Biệt</h3>
+          <p>Một sự kiện đáng nhớ, kỷ niệm khó quên...</p>
+          <span class="date">[Ngày/tháng/năm]</span>
+        </div>
+      </li>
+      <li>
+        <div class="timeline-content">
+          <h3>Ngày Cưới</h3>
+          <p>Thông tin về ngày trọng đại, chuẩn bị và cảm xúc...</p>
+          <span class="date">[Ngày/tháng/năm]</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Section: Châm ngôn về tình yêu -->
+  <section class="quotes" data-sr>
+    <h2>Châm Ngôn Yêu Thương</h2>
+    <div class="quote-list">
+      <blockquote>\"Tình yêu là nghệ thuật, không phải khoa học.\"</blockquote>
+      <blockquote>\"Hạnh phúc là khi được bên nhau.\"</blockquote>
+      <blockquote>\"Mỗi khoảnh khắc bên nhau đều là vô giá.\"</blockquote>
+    </div>
+  </section>
+
+  <!-- Section: Gửi lời chúc và hiển thị lời chúc đã gửi -->
+  <section id="wishes" data-sr>
+    <h2>Gửi Lời Chúc</h2>
+    <form id="wishForm">
+      <input type="text" id="name" placeholder="Tên của bạn" required>
+      <textarea id="wish" placeholder="Lời chúc của bạn" required></textarea>
+      <button type="submit">Gửi</button>
+    </form>
+    <div class="wishes-display">
+      <h3>Lời Chúc Đã Gửi</h3>
+      <ul id="wishesList"></ul>
+    </div>
+  </section>
+
+  <!-- Section: Đếm ngược đến ngày cưới -->
+  <section id="countdown" data-sr>
+    <h2>Đếm Ngược Đến Ngày Cưới</h2>
+    <div id="countdownTimer"></div>
+  </section>
+
+  <!-- Section: Bản đồ địa điểm tổ chức sử dụng Leaflet.js -->
+  <section id="map" data-sr>
+    <h2>Địa Điểm Tổ Chức</h2>
+    <div id="leafletMap" style="height: 400px;"></div>
+  </section>
+
+  <!-- Section: Chia sẻ mạng xã hội -->
+  <section class="social-share" data-sr>
+    <h2>Chia Sẻ Lên Mạng Xã Hội</h2>
+    <button id="shareFB">Chia sẻ Facebook</button>
+    <button id="shareTW">Chia sẻ Twitter</button>
+  </section>
+
+  <!-- Nhạc nền với điều khiển play/pause -->
+  <audio id="backgroundMusic" loop>
+    <source src="your-background-music.mp3" type="audio/mpeg">
+  </audio>
+  <button id="musicControl" class="music-control">Play</button>
+
+  <!-- Scripts bên dưới -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Hiệu ứng ScrollReveal
+    ScrollReveal().reveal('[data-sr]', { duration: 1200, origin: 'bottom', distance: '50px' });
+
+    // Slideshow cho gallery
+    let slideIndex = 0;
+    function showSlides() {
+      let slides = document.getElementsByClassName("mySlides");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      slides[slideIndex-1].style.display = "block";  
+      setTimeout(showSlides, 3000); // Thay đổi slide sau 3 giây
+    }
+    showSlides();
+
+    // Xử lý form gửi lời chúc và lưu vào localStorage
+    document.getElementById('wishForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const wish = document.getElementById('wish').value;
+      if (name && wish) {
+        const wishItem = document.createElement('li');
+        wishItem.textContent = name + ': ' + wish;
+        document.getElementById('wishesList').appendChild(wishItem);
+        localStorage.setItem('wishes', document.getElementById('wishesList').innerHTML);
+        document.getElementById('name').value = '';
+        document.getElementById('wish').value = '';
+      }
+    });
+    // Tải lời chúc từ localStorage khi trang được load
+    document.addEventListener('DOMContentLoaded', function() {
+      if(localStorage.getItem('wishes')) {
+        document.getElementById('wishesList').innerHTML = localStorage.getItem('wishes');
+      }
+    });
+
+    // Bộ đếm ngược đến ngày cưới
+    function countdownTimer() {
+      const weddingDate = new Date('2025-12-31T00:00:00'); // Thay đổi ngày cưới cho phù hợp
+      const now = new Date();
+      const diff = weddingDate - now;
+      if(diff <= 0) {
+        document.getElementById('countdownTimer').textContent = 'Đã kết hôn!';
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      document.getElementById('countdownTimer').textContent = days + ' ngày ' + hours + ' giờ ' + minutes + ' phút ' + seconds + ' giây';
+    }
+    countdownTimer();
+    setInterval(countdownTimer, 1000);
+
+    // Khởi tạo bản đồ với Leaflet.js
+    const map = L.map('leafletMap').setView([10.762622, 106.660172], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+    }).addTo(map);
+    L.marker([10.762622, 106.660172]).addTo(map)
+      .bindPopup('Địa điểm tổ chức')
+      .openPopup();
+
+    // Điều khiển nhạc nền
+    const music = document.getElementById('backgroundMusic');
+    const musicControl = document.getElementById('musicControl');
+    musicControl.addEventListener('click', function() {
+      if(music.paused) {
+        music.play();
+        musicControl.textContent = 'Pause';
+      } else {
+        music.pause();
+        musicControl.textContent = 'Play';
+      }
+    });
+
+    // Nút chia sẻ mạng xã hội
+    document.getElementById('shareFB').addEventListener('click', function() {
+      window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
+    });
+    document.getElementById('shareTW').addEventListener('click', function() {
+      window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href), '_blank');
+    });
+  </script>
+</body>
+</html>

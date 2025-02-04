@@ -1,0 +1,244 @@
+/* Tổng thể */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header Parallax */
+header.parallax {
+  background-image: url('header-bg.jpg'); /* Thay bằng ảnh thực tế */
+  min-height: 60vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+header .header-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+header h1 {
+  font-size: 3em;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+header p {
+  font-size: 1.5em;
+}
+
+/* Menu điều hướng */
+nav.main-nav {
+  background: rgba(255, 105, 180, 0.9); /* màu hồng nhẹ */
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav.main-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+nav.main-nav li {
+  margin: 0 15px;
+}
+nav.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+nav.main-nav a:hover {
+  color: #ffd700; /* vàng */
+}
+
+/* Các section */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+section h2 {
+  color: #ff69b4; /* hồng */
+  margin-bottom: 20px;
+}
+
+/* Slideshow Gallery */
+.slideshow-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.mySlides {
+  display: none;
+}
+.mySlides img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
+}
+.mySlides img:hover {
+  transform: scale(1.05);
+}
+
+/* Video container */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.video-container iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Timeline */
+.timeline {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+.timeline li {
+  background: #fff;
+  border-left: 5px solid #ff69b4;
+  margin-bottom: 20px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  background: #ffd700; /* vàng */
+  border-radius: 50%;
+}
+
+/* Quotes */
+.quotes blockquote {
+  font-style: italic;
+  background: #fff0f5;
+  border-left: 5px solid #ff69b4;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  transition: transform 0.3s ease;
+}
+.quotes blockquote:hover {
+  transform: translateX(10px);
+}
+
+/* Form gửi lời chúc */
+#wishForm {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+#wishForm input, #wishForm textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #ff69b4;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+#wishForm input:focus, #wishForm textarea:focus {
+  border-color: #ffd700;
+}
+#wishForm button {
+  background: #ff69b4;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+#wishForm button:hover {
+  background: #e055a1;
+}
+
+/* Hiển thị lời chúc */
+.wishes-display {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+}
+.wishes-display ul {
+  list-style: none;
+  padding: 0;
+}
+.wishes-display li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Countdown */
+#countdownTimer {
+  font-size: 1.5em;
+  color: #ff69b4;
+}
+
+/* Social share */
+.social-share button {
+  background: #ffd700;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.social-share button:hover {
+  background: #e6c200;
+}
+
+/* Nhạc nền control */
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff69b4;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.music-control:hover {
+  background: #e055a1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav.main-nav ul {
+    flex-direction: column;
+  }
+  .timeline li {
+    text-align: center;
+  }
+}
